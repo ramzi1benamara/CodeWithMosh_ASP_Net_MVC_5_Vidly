@@ -180,6 +180,10 @@
     <Compile Include="Migrations\202009190907215_InitialModel.designer.cs">
       <DependentUpon>202009190907215_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009190943540_AddIsSubscribedToNewsletterToCustomers.cs" />
+    <Compile Include="Migrations\202009190943540_AddIsSubscribedToNewsletterToCustomers.designer.cs">
+      <DependentUpon>202009190943540_AddIsSubscribedToNewsletterToCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -274,6 +278,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009190907215_InitialModel.resx">
       <DependentUpon>202009190907215_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009190943540_AddIsSubscribedToNewsletterToCustomers.resx">
+      <DependentUpon>202009190943540_AddIsSubscribedToNewsletterToCustomers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
