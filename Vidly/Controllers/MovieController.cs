@@ -14,11 +14,24 @@ namespace Vidly.Controllers
         {
             var movie = new Movie() { Name = "Shrek!" };
 
-            //            return View(movie);
-            //            return Content("Hello, Sophart");
-            //            return HttpNotFound();
-            //            return new EmptyResult();
-            return RedirectToAction("Index", "Home", new { page = 1, sortBy = "name" });
+            return View(movie);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return Content("id=" + id);
+        }
+
+        // GET: /movie
+        public ActionResult Index(int? pageIndex, string sortBy)
+        {
+            if (!pageIndex.HasValue)
+                pageIndex = 1;
+
+            if (string.IsNullOrWhiteSpace(sortBy))
+                sortBy = "ReleaseDate";
+
+            return Content($"pageIndex={pageIndex}&sortBy={sortBy}");
         }
     }
 }
