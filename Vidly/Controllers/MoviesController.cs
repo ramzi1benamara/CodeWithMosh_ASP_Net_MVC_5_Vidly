@@ -14,14 +14,10 @@ namespace Vidly.Controllers
         {
             var movie = new Movie() { Name = "Shrek!" };
 
+            //            ViewData["Movie"] = movie;
+            //            ViewBag.Movie = movie;
+            //            return View();
             return View(movie);
-        }
-
-        //GET: /movies/released/{year}/{month}
-        [Route("movies/released/{year}/{month:regex(\\d{2}):range(1, 12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
-        {
-            return Content($"{year}/{month}");
         }
     }
 }
