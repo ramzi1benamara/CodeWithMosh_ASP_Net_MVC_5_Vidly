@@ -1,6 +1,12 @@
-﻿@model Vidly.Models.Movie
+﻿@model Vidly.ViewModels.RandomMovieViewModel
 @{
     ViewBag.Title = "Random";
 }
 
-<h1>@Model.Name</h1>
+<h1>@Model.Movie.Name</h1>
+@foreach (var customer in Model.Customers)
+{
+    <ul>
+        <li><h2>@customer.Name</h2></li>
+    </ul>
+}
