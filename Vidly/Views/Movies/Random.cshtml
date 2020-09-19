@@ -3,10 +3,23 @@
     ViewBag.Title = "Random";
 }
 
-<h1>@Model.Movie.Name</h1>
-@foreach (var customer in Model.Customers)
-{
-    <ul>
-        <li><h2>@customer.Name</h2></li>
-    </ul>
+@{
+    var customerHighlight = @Model.Customers.Count > 0 ? "text-primary" : "text-danger";
 }
+
+<h1>@Model.Movie.Name</h1>
+
+@if (Model.Customers.Count > 0)
+{
+    foreach (var customer in Model.Customers)
+    {
+        <ul>
+            <li><h2 class="@customerHighlight">@customer.Name</h2></li>
+        </ul>
+    }
+}
+else
+{
+    <h2 class="@customerHighlight">There is no customer.</h2>
+}
+
