@@ -7,9 +7,9 @@ using Vidly.Models;
 
 namespace Vidly.Controllers
 {
-    public class MovieController : Controller
+    public class MoviesController : Controller
     {
-        // GET: Movie/Random
+        // GET: Movies/Random
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!" };
@@ -22,7 +22,7 @@ namespace Vidly.Controllers
             return Content("id=" + id);
         }
 
-        // GET: /movie
+        // GET: /movies
         public ActionResult Index(int? pageIndex, string sortBy)
         {
             if (!pageIndex.HasValue)
