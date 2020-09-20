@@ -6,7 +6,7 @@
 
 <h2>@Model.Title</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Save", "Movies"))
 {
     @Html.HiddenFor(m => m.Movie.Id)
 
