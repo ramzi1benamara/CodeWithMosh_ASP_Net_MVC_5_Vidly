@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -43,10 +44,18 @@ namespace Vidly.Controllers
         {
             var customer = _dbContext.Customers.SingleOrDefault(c => c.Id == id);
 
+            var membershipTypes = _dbContext.MembershipTypes.ToList();
+
+            var viewModel = new CustomerViewModel()
+            {
+                Customer = customer,
+                MembershipTypes = membershipTypes
+            };
+
             if (customer == null)
                 return HttpNotFound();
 
-            return View("Form", customer);
+            return View("Form", viewModel);
         }
 
         public ActionResult Save()

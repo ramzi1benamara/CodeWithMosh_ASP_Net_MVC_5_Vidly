@@ -1,4 +1,4 @@
-﻿@model Vidly.Models.Customer
+﻿@model Vidly.ViewModels.CustomerViewModel
 
 @{
     ViewBag.Title = "Form";
@@ -9,17 +9,17 @@
 @using (Html.BeginForm("Save", "Customers"))
 {
     <div class="form-group">
-        @Html.LabelFor(c => c.Name)
-        @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(c => c.BirthDate)
-        @Html.TextBoxFor(c => c.BirthDate, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Customer.BirthDate)
+        @Html.TextBoxFor(m => m.Customer.BirthDate, new { @class = "form-control" })
     </div>
 
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(c => c.IsSubscribedToNewsletter) Subscribe to Newsletter
+            @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter) Subscribe to Newsletter
         </label>
     </div>
 
