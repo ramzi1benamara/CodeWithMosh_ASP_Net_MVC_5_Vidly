@@ -48,5 +48,10 @@ namespace Vidly.Controllers
 
             return View("Form", customer);
         }
+
+        public ActionResult Save()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
