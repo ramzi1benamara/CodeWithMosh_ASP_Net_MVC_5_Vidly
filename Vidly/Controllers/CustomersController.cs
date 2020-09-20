@@ -58,9 +58,22 @@ namespace Vidly.Controllers
             return View("Form", viewModel);
         }
 
-        public ActionResult Save()
+        public ActionResult Save(Customer customer)
         {
-            throw new System.NotImplementedException();
+
+            var customerInDb = _dbContext.Customers.SingleOrDefault(c => c.Id ==customer.Id);
+
+            if (customerInDb != null)
+            {
+                customerInDb.Name = customer.Name;
+                customerInDb.BirthDate = customer.BirthDate;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+            }
+
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
