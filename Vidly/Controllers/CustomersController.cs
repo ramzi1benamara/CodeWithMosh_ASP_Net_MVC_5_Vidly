@@ -58,17 +58,35 @@ namespace Vidly.Controllers
             return View("Form", viewModel);
         }
 
+        public ActionResult New()
+        {
+            var membershipTypes = _dbContext.MembershipTypes.ToList();
+            var viewModel = new CustomerViewModel()
+            {
+                Customer = new Customer(),
+                MembershipTypes = membershipTypes
+            };
+
+            return View("Form", viewModel);
+        }
+
         public ActionResult Save(Customer customer)
         {
-
-            var customerInDb = _dbContext.Customers.SingleOrDefault(c => c.Id ==customer.Id);
-
-            if (customerInDb != null)
+            if (customer.Id == 0)
             {
-                customerInDb.Name = customer.Name;
-                customerInDb.BirthDate = customer.BirthDate;
-                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
-                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                _dbContext.Customers.Add(customer);
+            }
+            else
+            {
+                var customerInDb = _dbContext.Customers.SingleOrDefault(c => c.Id == customer.Id);
+
+                if (customerInDb != null)
+                {
+                    customerInDb.Name = customer.Name;
+                    customerInDb.BirthDate = customer.BirthDate;
+                    customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                    customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                }
             }
 
             _dbContext.SaveChanges();
