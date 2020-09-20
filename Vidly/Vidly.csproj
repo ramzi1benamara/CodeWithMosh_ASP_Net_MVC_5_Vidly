@@ -212,6 +212,10 @@
     <Compile Include="Migrations\202009200459351_InitialMovieModel.designer.cs">
       <DependentUpon>202009200459351_InitialMovieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009200512288_PopulateGenres.cs" />
+    <Compile Include="Migrations\202009200512288_PopulateGenres.designer.cs">
+      <DependentUpon>202009200512288_PopulateGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -332,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009200459351_InitialMovieModel.resx">
       <DependentUpon>202009200459351_InitialMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009200512288_PopulateGenres.resx">
+      <DependentUpon>202009200512288_PopulateGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
