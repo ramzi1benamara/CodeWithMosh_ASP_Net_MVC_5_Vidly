@@ -5,6 +5,10 @@
 
 <h2>Customer</h2>
 
+<a href="@Url.Action("New")" class="btn btn-primary"><i class="glyphicon glyphicon-star"> New</i></a>
+
+<hr />
+
 @if (Model.Count > 0)
 {
     <table class="table table-bordered table-hover">
@@ -12,6 +16,7 @@
             <tr>
                 <td>Customer</td>
                 <td>Membership Type</td>
+                <td>Action</td>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +25,10 @@
                 <tr>
                     <td>@Html.ActionLink(customer.Name, "Details", new { id = customer.Id }, null)</td>
                     <td>@customer.MembershipType.Name</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new {@customer.Id})" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <a href="@Url.Action("Delete", new {@customer.Id})" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
                 </tr>
             }
         </tbody>
