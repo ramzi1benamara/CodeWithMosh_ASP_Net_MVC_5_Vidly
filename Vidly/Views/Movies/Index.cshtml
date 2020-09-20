@@ -4,6 +4,11 @@
 }
 
 <h2>Movies</h2>
+
+<a href="@Url.Action("New")" class="btn btn-primary"><i class="glyphicon glyphicon-star"> New</i></a>
+
+<hr />
+
 @if (Model == null)
 {
     <p>We don't have any movies.</p>
@@ -15,6 +20,7 @@ else
             <tr>
                 <th>Movie</th>
                 <th>Genre</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -23,6 +29,10 @@ else
                 <tr>
                     <td>@Html.ActionLink(movie.Name, "Details", new { id = movie.Id }, null)</td>
                     <td>@movie.Genre.Name</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = @movie.Id})" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <a href="@Url.Action("Delete", new { id = @movie.Id})" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a>
+                    </td>
                 </tr>
             }
 
