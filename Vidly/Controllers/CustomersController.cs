@@ -38,5 +38,15 @@ namespace Vidly.Controllers
 
             return View(customer);
         }
+
+        public ActionResult Edit(int id)
+        {
+            var customer = _dbContext.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+            return View("Form", customer);
+        }
     }
 }
