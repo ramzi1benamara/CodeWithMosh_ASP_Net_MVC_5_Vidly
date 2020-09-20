@@ -208,10 +208,15 @@
     <Compile Include="Migrations\202009200408490_AddBirthDateToCustomers.designer.cs">
       <DependentUpon>202009200408490_AddBirthDateToCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009200459351_InitialMovieModel.cs" />
+    <Compile Include="Migrations\202009200459351_InitialMovieModel.designer.cs">
+      <DependentUpon>202009200459351_InitialMovieModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -324,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009200408490_AddBirthDateToCustomers.resx">
       <DependentUpon>202009200408490_AddBirthDateToCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009200459351_InitialMovieModel.resx">
+      <DependentUpon>202009200459351_InitialMovieModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
