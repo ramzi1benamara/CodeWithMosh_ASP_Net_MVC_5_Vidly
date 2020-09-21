@@ -64,6 +64,7 @@ namespace Vidly.Controllers
             return View("Form", viewModel);
         }
 
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
