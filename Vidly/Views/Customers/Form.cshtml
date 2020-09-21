@@ -6,6 +6,8 @@
 
 <h2>@Model.Title</h2>
 
+@Html.ValidationSummary(true, "Please fix the following errors.")
+
 @using (Html.BeginForm("Save", "Customers"))
 {
     @Html.HiddenFor(m => m.Customer.Id)
