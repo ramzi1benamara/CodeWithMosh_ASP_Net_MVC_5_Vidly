@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using System.Web.Mvc;
 using Vidly.Models;
 
 namespace Vidly.Controllers.Api
@@ -22,7 +21,7 @@ namespace Vidly.Controllers.Api
             _dbContext.Dispose();
         }
 
-        [HttpGet]
+
         public IList<Customer> GetCustomers()
         {
             return _dbContext.Customers.ToList();
