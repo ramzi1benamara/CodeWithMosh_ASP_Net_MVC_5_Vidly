@@ -9,7 +9,7 @@ namespace Vidly.Controllers.Api
 {
     public class CustomersController : ApiController
     {
-        private ApplicationDbContext _dbContext;
+        private readonly ApplicationDbContext _dbContext;
 
         public CustomersController()
         {
@@ -22,7 +22,7 @@ namespace Vidly.Controllers.Api
         }
 
 
-        public IList<Customer> GetCustomers()
+        public IEnumerable<Customer> GetCustomers()
         {
             return _dbContext.Customers.ToList();
         }
