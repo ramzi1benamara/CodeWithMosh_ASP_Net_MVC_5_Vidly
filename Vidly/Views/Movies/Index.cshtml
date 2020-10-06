@@ -15,7 +15,7 @@
 }
 else
 {
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" id="movies">
         <thead>
             <tr>
                 <th>Movie</th>
@@ -38,4 +38,12 @@ else
 
         </tbody>
     </table>
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+            $("#movies").DataTable();
+        });
+    </script>
 }
