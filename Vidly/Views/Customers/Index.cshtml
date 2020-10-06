@@ -25,30 +25,32 @@
 {
     <script>
         $(document).ready(function () {
-            var table = $("#customers").DataTable({
-                ajax: {
-                    url: "/api/customers",
-                    dataSrc: ""
-                },
-                columns: [
-                    {
-                        data: "name",
-                        render: function (data, type, customer) {
-                            return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
-                        }
+            var table = $("#customers").DataTable(
+                {
+                    ajax: {
+                        url: "/api/customers",
+                        dataSrc: ""
                     },
-                    {
-                        data: "membershipType.name"
+                    columns: [
+                        {
+                            data: "name",
+                            render: function (data, type, customer) {
+                                return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
+                            }
+                        },
+                        {
+                            data: "membershipType.name"
 
-                    },
-                    {
-                        data: "id",
-                        render: function (data) {
-                            return "<button class='btn btn-sm btn-danger js-delete' data-customer-id=" + data + "><i class='glyphicon glyphicon-trash'></i></button>";
+                        },
+                        {
+                            data: "id",
+                            render: function (data) {
+                                return "<button class='btn btn-sm btn-danger js-delete' data-customer-id=" + data + "><i class='glyphicon glyphicon-trash'></i></button>";
+                            }
                         }
-                    }
-                ]
-            });
+                    ]
+                }
+            );
 
             $("#customers").on('click',
                 ".js-delete",
@@ -68,7 +70,8 @@
                                     }
                                 );
                             }
-                        });
+                        }
+                    );
                 }
             );
         }
