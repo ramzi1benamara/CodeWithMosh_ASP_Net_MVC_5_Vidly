@@ -51,16 +51,23 @@ else
                     },
                     columns: [
                         {
-                            data: "name"
+                            data: "name",
+                            render: function (data, type, movie) {
+                                return "<a href='/movies/edit/" + movie.id + "'>" + movie.name + "</a>";
+                            }
                         },
                         {
                             data: "genre.name"
                         },
                         {
-                            data: "id"
+                            data: "id",
+                            render: function (data, type, movie) {
+                                return "<button class='btn btn-sm btn-danger js-delete' data-movie-id='" + movie.id + "'><i class='glyphicon glyphicon-trash' /></button>";
+                            }
                         }
                     ]
-                });
+                }
+            );
         });
     </script>
 }
