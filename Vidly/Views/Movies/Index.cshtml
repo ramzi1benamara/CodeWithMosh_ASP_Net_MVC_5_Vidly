@@ -42,7 +42,7 @@ else
 
 @section scripts{
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             var table = $("#movies").DataTable(
                 {
                     ajax: {
@@ -52,7 +52,7 @@ else
                     columns: [
                         {
                             data: "name",
-                            render: function (data, type, movie) {
+                            render: function(data, type, movie) {
                                 return "<a href='/movies/edit/" + movie.id + "'>" + movie.name + "</a>";
                             }
                         },
@@ -61,11 +61,31 @@ else
                         },
                         {
                             data: "id",
-                            render: function (data, type, movie) {
+                            render: function(data, type, movie) {
                                 return "<button class='btn btn-sm btn-danger js-delete' data-movie-id='" + movie.id + "'><i class='glyphicon glyphicon-trash' /></button>";
                             }
                         }
                     ]
+                }
+            );
+
+            $("#movies").on("click",
+                ".js-delete",
+                function() {
+                    var button = $(this);
+                    bootbox.confirm('Are you sure to delete this movie?',
+                        function(result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/movies/" + button.attr('data-movie-id'),
+                                    method: "DELETE",
+                                    success: function() {
+                                        table.row(button.parents('tr')).remove().draw();
+                                    }
+                                });
+                            }
+                        }
+                    );
                 }
             );
         });
