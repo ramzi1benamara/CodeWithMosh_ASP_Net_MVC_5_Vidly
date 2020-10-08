@@ -1,5 +1,4 @@
-﻿@model List<Vidly.Models.Movie>
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
@@ -9,40 +8,21 @@
 
 <hr />
 
-@if (Model == null)
-{
-    <p>We don't have any movies.</p>
-}
-else
-{
-    <table class="table table-bordered table-hover" id="movies">
-        <thead>
-            <tr>
-                <th>Movie</th>
-                <th>Genre</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @*             @foreach (var movie in Model) *@
-            @*             { *@
-            @*                 <tr> *@
-            @*                     <td>@Html.ActionLink(movie.Name, "Details", new { id = movie.Id }, null)</td> *@
-            @*                     <td>@movie.Genre.Name</td> *@
-            @*                     <td> *@
-            @*                         <a href="@Url.Action("Edit", new { id = @movie.Id})" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-pencil"></i></a> *@
-            @*                         <a href="@Url.Action("Delete", new { id = @movie.Id})" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-trash"></i></a> *@
-            @*                     </td> *@
-            @*                 </tr> *@
-            @*             } *@
-
-        </tbody>
-    </table>
-}
+<table class="table table-bordered table-hover" id="movies">
+    <thead>
+        <tr>
+            <th>Movie</th>
+            <th>Genre</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
 
 @section scripts{
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             var table = $("#movies").DataTable(
                 {
                     ajax: {
@@ -52,7 +32,7 @@ else
                     columns: [
                         {
                             data: "name",
-                            render: function(data, type, movie) {
+                            render: function (data, type, movie) {
                                 return "<a href='/movies/edit/" + movie.id + "'>" + movie.name + "</a>";
                             }
                         },
@@ -61,7 +41,7 @@ else
                         },
                         {
                             data: "id",
-                            render: function(data, type, movie) {
+                            render: function (data, type, movie) {
                                 return "<button class='btn btn-sm btn-danger js-delete' data-movie-id='" + movie.id + "'><i class='glyphicon glyphicon-trash' /></button>";
                             }
                         }
@@ -71,15 +51,15 @@ else
 
             $("#movies").on("click",
                 ".js-delete",
-                function() {
+                function () {
                     var button = $(this);
                     bootbox.confirm('Are you sure to delete this movie?',
-                        function(result) {
+                        function (result) {
                             if (result) {
                                 $.ajax({
                                     url: "/api/movies/" + button.attr('data-movie-id'),
                                     method: "DELETE",
-                                    success: function() {
+                                    success: function () {
                                         table.row(button.parents('tr')).remove().draw();
                                     }
                                 });
