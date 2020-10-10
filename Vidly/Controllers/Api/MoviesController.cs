@@ -10,6 +10,7 @@ using Vidly.Models;
 
 namespace Vidly.Controllers.Api
 {
+    [Authorize(Roles = RoleName.CanManageMovie)]
     public class MoviesController : ApiController
     {
         private readonly ApplicationDbContext _dbContext;
@@ -20,12 +21,14 @@ namespace Vidly.Controllers.Api
         }
 
         //GET /api/movies
+        [AllowAnonymous]
         public IHttpActionResult GetMovies()
         {
             return Ok(_dbContext.Movies.Include(m=>m.Genre).ToList().Select(Mapper.Map<Movie, MovieDto>));
         }
 
 
+        [AllowAnonymous]
         //GET /api/movies/[id]
         public IHttpActionResult GetMovie(int id)
         {
