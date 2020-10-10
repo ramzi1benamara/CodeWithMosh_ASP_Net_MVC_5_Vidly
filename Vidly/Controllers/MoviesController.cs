@@ -43,7 +43,7 @@ namespace Vidly.Controllers
 
             // return View(movies);
 
-            if(User.IsInRole("CanManageMovie"))
+            if(User.IsInRole(RoleName.CanManageMovie))
                 return View("List");
 
             return View("ReadOnlyView");
@@ -56,7 +56,7 @@ namespace Vidly.Controllers
             return View(movie);
         }
 
-        [Authorize(Roles = "CanManageMovie")]
+        [Authorize(Roles = RoleName.CanManageMovie)]
         public ActionResult New()
         {
             var genres = _dbContext.Genres.ToList();
@@ -96,7 +96,7 @@ namespace Vidly.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = "CanManageMovie")]
+        [Authorize(Roles = RoleName.CanManageMovie)]
         public ActionResult Edit(int id)
         {
             var movie = _dbContext.Movies.SingleOrDefault(m => m.Id == id);
