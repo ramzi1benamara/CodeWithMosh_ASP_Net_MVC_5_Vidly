@@ -240,6 +240,10 @@
     <Compile Include="Migrations\202009201447154_ApplyAttributesToMovieModel.designer.cs">
       <DependentUpon>202009201447154_ApplyAttributesToMovieModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010100848269_SeedUsers.cs" />
+    <Compile Include="Migrations\202010100848269_SeedUsers.designer.cs">
+      <DependentUpon>202010100848269_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -492,10 +496,11 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\Form.cshtml" />
     <Content Include="Views\Movies\Form.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -546,6 +551,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009201447154_ApplyAttributesToMovieModel.resx">
       <DependentUpon>202009201447154_ApplyAttributesToMovieModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010100848269_SeedUsers.resx">
+      <DependentUpon>202010100848269_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
